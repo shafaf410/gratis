@@ -29,7 +29,8 @@ export default function GratisHomepage() {
     requestAnimationFrame(raf);
 
     const handleScroll = () => {
-      if (window.scrollY > 80) {
+      // Hide nav bar while in pure hero video section, reveal when reaching main content
+      if (window.scrollY > window.innerHeight * 1.5) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -148,8 +149,8 @@ export default function GratisHomepage() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "glass-nav-scrolled py-3 shadow-xl"
-            : "glass-nav py-5"
+            ? "glass-nav-scrolled py-3 shadow-xl opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-full pointer-events-none"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
