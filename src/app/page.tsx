@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight, ChevronRight, Phone, Mail, MapPin, Check, Shield, Layers, Sparkles, Send, Award, Clock } from "lucide-react";
 import Lenis from "lenis";
+import HeroScrollVideo from "./HeroScrollVideo";
 
 export default function GratisHomepage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -296,10 +297,8 @@ export default function GratisHomepage() {
       </AnimatePresence>
 
 
-      {/* CRITICAL HERO REQUIREMENT — LEAVE COMPLETELY BLANK CONTAINER 100vh */}
-      <section className="w-full h-screen bg-[#FBF9F5] border-b border-black/5 flex items-center justify-center relative select-none">
-        {/* Strictly blank container as requested: 100vh full height neutral background reserved for future hero design */}
-      </section>
+      {/* HERO SCROLL VIDEO ANIMATION SECTION */}
+      <HeroScrollVideo />
 
       {/* WEBSITE STARTS IMMEDIATELY AFTER HERO WITH 11.PNG BG INTEGRATION & HIGH CONTRAST TINT */}
       <div 
