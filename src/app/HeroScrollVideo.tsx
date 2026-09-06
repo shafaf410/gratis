@@ -92,7 +92,9 @@ export default function HeroScrollVideo() {
         if (totalScrollable > 0) {
           const currentScroll = Math.min(Math.max(-rect.top, 0), totalScrollable);
           const scrollFraction = currentScroll / totalScrollable;
-          targetFrame = scrollFraction * (TOTAL_FRAMES - 1);
+          // Finish full 204 frame sequence by 85% scroll, so completed final frame holds before moving down
+          const frameProgress = Math.min(scrollFraction / 0.85, 1.0);
+          targetFrame = frameProgress * (TOTAL_FRAMES - 1);
         }
 
         // Lerp (Linear Interpolation) for 60fps silky smooth frame transitions
