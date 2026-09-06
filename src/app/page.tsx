@@ -298,58 +298,8 @@ export default function GratisHomepage() {
       </AnimatePresence>
 
 
-      {/* HERO SCROLL VIDEO ANIMATION SECTION */}
+      {/* HERO SCROLL ANIMATION SECTION (OVERLAY APPEARS ON LAST FRAME) */}
       <HeroScrollVideo />
-
-      {/* LUXURY INTERIOR LIVING SPACE HERO SECTION */}
-      <section className="relative w-full h-screen bg-[#140E0A] overflow-hidden select-none border-b border-black/10">
-        {/* Background Image */}
-        <div className="absolute inset-0 w-full h-full">
-          <img
-            src="/hero-living-space.jpg"
-            alt="Gratis Luxury Interior Living Space"
-            className="w-full h-full object-cover brightness-[0.92] contrast-[1.05]"
-          />
-        </div>
-
-        {/* Subtle Ambient Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
-
-        {/* Header Overlay Text */}
-        <div className="absolute top-1/4 left-6 md:left-16 z-20 max-w-2xl space-y-4">
-          <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#D4A373] bg-black/50 px-4 py-1.5 rounded-full backdrop-blur-md border border-[#D4A373]/30 inline-block">
-            ARCHITECTURAL INTERIOR LIVING
-          </span>
-          <h1 className="text-4xl md:text-6xl font-serif text-white font-medium leading-tight drop-shadow-lg">
-            Where Craftsmanship <br />
-            <span className="italic text-[#D4A373]">Meets Modern Living</span>
-          </h1>
-          <p className="text-sm md:text-base text-white/80 font-light max-w-lg leading-relaxed drop-shadow">
-            Experience our 100% waterproof PVC paneling, structural veneers, and customized cabinetry engineered for timeless homes.
-          </p>
-        </div>
-
-        {/* Floating Bottom-Left N' Badge Icon */}
-        <div className="absolute bottom-6 left-6 z-30">
-          <button
-            className="w-11 h-11 rounded-full bg-black/80 hover:bg-black text-white font-serif font-bold text-base flex items-center justify-center shadow-2xl border border-white/20 hover:scale-110 active:scale-95 transition-all duration-300 group"
-            title="Gratis Group Brand"
-          >
-            <span className="group-hover:rotate-12 transition-transform">N&apos;</span>
-          </button>
-        </div>
-
-        {/* Floating Bottom-Right Call Icon Button */}
-        <div className="absolute bottom-6 right-6 z-30">
-          <a
-            href="tel:+919544048877"
-            className="w-12 h-12 rounded-full bg-[#8C6D53] hover:bg-[#725740] text-white flex items-center justify-center shadow-2xl border border-white/20 hover:scale-110 active:scale-95 transition-all duration-300"
-            title="Call Gratis Direct"
-          >
-            <Phone size={20} className="fill-white" />
-          </a>
-        </div>
-      </section>
 
       {/* WEBSITE STARTS IMMEDIATELY AFTER HERO WITH 11.PNG BG INTEGRATION & HIGH CONTRAST TINT */}
       <div 

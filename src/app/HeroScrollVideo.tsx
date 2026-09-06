@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
+import { Phone } from "lucide-react";
 
-const TOTAL_FRAMES = 204;
+const TOTAL_FRAMES = 203;
 
 // Helper to format frame numbers like ezgif-frame-001.jpg
 const getFramePath = (index: number) => {
@@ -15,6 +16,7 @@ export default function HeroScrollVideo() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
   const [loadedCount, setLoadedCount] = useState(0);
+  const [overlayOpacity, setOverlayOpacity] = useState(0);
 
   useEffect(() => {
     const images: HTMLImageElement[] = [];
@@ -92,9 +94,18 @@ export default function HeroScrollVideo() {
         if (totalScrollable > 0) {
           const currentScroll = Math.min(Math.max(-rect.top, 0), totalScrollable);
           const scrollFraction = currentScroll / totalScrollable;
-          // Finish full 204 frame sequence by 85% scroll, so completed final frame holds before moving down
-          const frameProgress = Math.min(scrollFraction / 0.85, 1.0);
+          
+          // Complete animation by 80% scroll
+          const frameProgress = Math.min(scrollFraction / 0.80, 1.0);
           targetFrame = frameProgress * (TOTAL_FRAMES - 1);
+
+          // Calculate overlay opacity: fade in between 70% and 90% scroll
+          if (scrollFraction > 0.65) {
+            const opacity = Math.min(Math.max((scrollFraction - 0.65) / 0.25, 0), 1);
+            setOverlayOpacity(opacity);
+          } else {
+            setOverlayOpacity(0);
+          }
         }
 
         // Lerp (Linear Interpolation) for 60fps silky smooth frame transitions
@@ -115,7 +126,7 @@ export default function HeroScrollVideo() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full h-[250vh] bg-black select-none">
+    <div ref={containerRef} className="relative w-full h-[280vh] bg-black select-none">
       {/* Sticky Fullscreen Canvas Container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center bg-black">
         {/* Loading overlay while first few frames load */}
@@ -131,6 +142,43 @@ export default function HeroScrollVideo() {
           ref={canvasRef}
           className="w-full h-full block pointer-events-none"
         />
+
+        {/* FADES IN ON LAST FRAME: Hero Overlay Content & Buttons */}
+        <div
+          className="absolute inset-0 pointer-events-none transition-opacity duration-300 z-20 flex flex-col justify-between p-6 md:p-12"
+          style={{ opacity: overlayOpacity }}
+        >
+          {/* Top Subtle Subtitle */}
+          <div className="pt-20 md:pt-24 max-w-xl space-y-3">
+            <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#D4A373] bg-black/60 px-4 py-1.5 rounded-full backdrop-blur-md border border-[#D4A373]/30 inline-block shadow-lg">
+              ARCHITECTURAL INTERIOR SOLUTIONS
+            </span>
+            <h1 className="text-3xl md:text-5xl font-serif text-white font-medium leading-tight drop-shadow-2xl">
+              Where Craftsmanship <br />
+              <span className="italic text-[#D4A373]">Meets Modern Living</span>
+            </h1>
+          </div>
+
+          {/* Bottom Controls matching screenshot */}
+          <div className="w-full flex items-center justify-between pointer-events-auto">
+            {/* Bottom-Left N' Badge Button */}
+            <button
+              className="w-11 h-11 rounded-full bg-black/85 hover:bg-black text-white font-serif font-bold text-base flex items-center justify-center shadow-2xl border border-white/20 hover:scale-110 active:scale-95 transition-all duration-300 group"
+              title="Gratis Group Brand"
+            >
+              <span className="group-hover:rotate-12 transition-transform">N&apos;</span>
+            </button>
+
+            {/* Bottom-Right Call Icon Button */}
+            <a
+              href="tel:+919544048877"
+              className="w-12 h-12 rounded-full bg-[#8C6D53] hover:bg-[#725740] text-white flex items-center justify-center shadow-2xl border border-white/20 hover:scale-110 active:scale-95 transition-all duration-300"
+              title="Call Gratis Direct"
+            >
+              <Phone size={20} className="fill-white" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
