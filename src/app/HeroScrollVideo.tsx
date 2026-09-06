@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect, useState } from "react";
 
-const TOTAL_FRAMES = 203;
+const TOTAL_FRAMES = 204;
 
 // Helper to format frame numbers like ezgif-frame-001.jpg
 const getFramePath = (index: number) => {
