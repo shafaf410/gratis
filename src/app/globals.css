@@ -32,21 +32,60 @@
     linear-gradient(
       125deg,
       transparent 0%,
-      transparent 18%,
-      rgba(217, 35, 62, 0.05) 18%,
-      rgba(217, 35, 62, 0.05) 34%,
-      transparent 34%,
-      transparent 42%,
-      rgba(217, 35, 62, 0.04) 42%,
-      rgba(217, 35, 62, 0.04) 60%,
-      transparent 60%,
-      transparent 68%,
-      rgba(217, 35, 62, 0.05) 68%,
-      rgba(217, 35, 62, 0.05) 86%,
-      transparent 86%
+      transparent 15%,
+      rgba(217, 35, 62, 0.12) 15%,
+      rgba(217, 35, 62, 0.12) 32%,
+      transparent 32%,
+      transparent 40%,
+      rgba(217, 35, 62, 0.10) 40%,
+      rgba(217, 35, 62, 0.10) 58%,
+      transparent 58%,
+      transparent 66%,
+      rgba(217, 35, 62, 0.12) 66%,
+      rgba(217, 35, 62, 0.12) 84%,
+      transparent 84%
     );
-  background-attachment: fixed;
   background-size: 100% 100%;
+}
+
+/* Explicit Red Diagonal Chevrons Decorative Background Accent */
+.bg-diagonal-red-chevrons {
+  position: relative;
+}
+.bg-diagonal-red-chevrons::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: 5%;
+  width: 280px;
+  height: 350px;
+  background: repeating-linear-gradient(
+    -35deg,
+    transparent,
+    transparent 20px,
+    rgba(217, 35, 62, 0.18) 20px,
+    rgba(217, 35, 62, 0.18) 55px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-diagonal-red-chevrons-left::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: 5%;
+  width: 260px;
+  height: 320px;
+  background: repeating-linear-gradient(
+    -35deg,
+    transparent,
+    transparent 20px,
+    rgba(217, 35, 62, 0.18) 20px,
+    rgba(217, 35, 62, 0.18) 55px
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Custom White Header Glassmorphism */

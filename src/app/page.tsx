@@ -225,11 +225,11 @@ export default function GratisHomepage() {
       {/* ==================== 2. HERO SECTION (PURE WHITE #FFFFFF & SOFT GRAY #F5F4F0) ==================== */}
       <section className="relative w-full min-h-screen bg-gradient-to-b from-white to-[#F5F4F0] text-[#0B0B0B] pt-28 pb-16 flex items-center overflow-hidden border-b border-[#E5E5E5]">
         {/* Oversized Background Chevron Graphic Motif */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none select-none opacity-15 hidden lg:block">
-          <div className="flex gap-8 transform translate-x-12">
-            <span className="w-32 h-[800px] bg-[#D9233E] skew-x-[-24deg] block" />
-            <span className="w-32 h-[800px] bg-[#D9233E] skew-x-[-24deg] block" />
-            <span className="w-32 h-[800px] bg-[#D9233E] skew-x-[-24deg] block" />
+        <div className="absolute -right-12 top-0 bottom-0 pointer-events-none select-none opacity-25 flex items-center justify-end overflow-hidden z-0">
+          <div className="flex gap-10 transform translate-x-20">
+            <span className="w-28 md:w-36 h-[900px] bg-[#D9233E] skew-x-[-25deg] block" />
+            <span className="w-28 md:w-36 h-[900px] bg-[#D9233E] skew-x-[-25deg] block" />
+            <span className="w-28 md:w-36 h-[900px] bg-[#D9233E] skew-x-[-25deg] block" />
           </div>
         </div>
 
@@ -357,8 +357,8 @@ export default function GratisHomepage() {
       </section>
 
       {/* ==================== 4. LEADERSHIP / CHAIRMAN (PURE WHITE #FFFFFF) ==================== */}
-      <section id="chairman" className="py-24 bg-white text-[#0B0B0B] border-b border-[#E5E5E5]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <section id="chairman" className="py-24 bg-white text-[#0B0B0B] border-b border-[#E5E5E5] bg-diagonal-red-chevrons overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-[#F5F4F0] p-8 md:p-14 border border-[#E5E5E5] relative shadow-sm">
             {/* Red Vertical Accent Line */}
             <div className="absolute top-0 bottom-0 left-0 w-1.5 bg-[#D9233E]" />
@@ -412,8 +412,8 @@ export default function GratisHomepage() {
       </section>
 
       {/* ==================== 5. ABOUT GRATIS GROUP (SOFT GRAY #F5F4F0) ==================== */}
-      <section id="about" className="py-24 bg-[#F5F4F0] text-[#0B0B0B] border-b border-[#E5E5E5]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
+      <section id="about" className="py-24 bg-[#F5F4F0] text-[#0B0B0B] border-b border-[#E5E5E5] bg-diagonal-red-chevrons-left overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-16 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 relative">
               <div className="overflow-hidden border border-[#E5E5E5] relative shadow-md bg-white">
@@ -617,8 +617,8 @@ export default function GratisHomepage() {
       </section>
 
       {/* ==================== 7. PRODUCTS RANGE (SOFT GRAY #F5F4F0) ==================== */}
-      <section id="products" className="py-24 bg-[#F5F4F0] text-[#0B0B0B] border-b border-[#E5E5E5]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
+      <section id="products" className="py-24 bg-[#F5F4F0] text-[#0B0B0B] border-b border-[#E5E5E5] bg-diagonal-red-chevrons overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-16 relative z-10">
           <div className="space-y-3">
             <span className="text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
               OUR PRODUCTS
