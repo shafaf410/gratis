@@ -82,7 +82,7 @@ export default function GratisHomepage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white gratis-abstract-bg text-[#0B0B0B] selection:bg-[#D9233E] selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-white text-[#0B0B0B] selection:bg-[#D9233E] selection:text-white overflow-x-hidden">
       {/* ==================== 1. HEADER (CLEAN WHITE) ==================== */}
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav-header py-4">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -303,8 +303,10 @@ export default function GratisHomepage() {
         </div>
       </section>
 
-      {/* ==================== 3. STATEMENT BAR (SOFT GRAY #F5F4F0) ==================== */}
-      <section className="w-full py-16 bg-[#F5F4F0] text-[#0B0B0B] border-b border-[#E5E5E5]">
+      {/* ==================== POST-HERO WRAPPER WITH MINIMAL DIAGONAL BANDS BACKGROUND ==================== */}
+      <div className="gratis-abstract-bg">
+        {/* ==================== 3. STATEMENT BAR (SOFT GRAY #F5F4F0) ==================== */}
+        <section className="w-full py-16 bg-[#F5F4F0]/80 text-[#0B0B0B] border-b border-[#E5E5E5]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
@@ -998,6 +1000,7 @@ export default function GratisHomepage() {
           </div>
         </div>
       </footer>
+      </div>
     </div>
   );
 }
