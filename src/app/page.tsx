@@ -20,7 +20,6 @@ import {
   Globe,
 } from "lucide-react";
 import Lenis from "lenis";
-import ContourBackground from "@/components/ContourBackground";
 
 export default function GratisHomepage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -83,7 +82,7 @@ export default function GratisHomepage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-[#0B0B0B] selection:bg-[#D9233E] selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-white gratis-abstract-bg text-[#0B0B0B] selection:bg-[#D9233E] selection:text-white overflow-x-hidden">
       {/* ==================== 1. HEADER (CLEAN WHITE) ==================== */}
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav-header py-4">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -223,13 +222,10 @@ export default function GratisHomepage() {
         )}
       </AnimatePresence>
 
-      {/* ==================== 2. HERO SECTION WITH BOLD CONTOUR BACKGROUND ==================== */}
-      <section className="relative w-full min-h-screen bg-[#0B0B0B] text-white pt-28 pb-16 flex items-center overflow-hidden border-b border-[#222222]">
-        {/* Animated Architectural Contour Lines Background */}
-        <ContourBackground />
-
+      {/* ==================== 2. HERO SECTION (PURE WHITE #FFFFFF & SOFT GRAY #F5F4F0) ==================== */}
+      <section className="relative w-full min-h-screen bg-gradient-to-b from-white to-[#F5F4F0] text-[#0B0B0B] pt-28 pb-16 flex items-center overflow-hidden border-b border-[#E5E5E5]">
         {/* Oversized Background Chevron Graphic Motif */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none select-none opacity-20 hidden lg:block z-0">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none select-none opacity-15 hidden lg:block">
           <div className="flex gap-8 transform translate-x-12">
             <span className="w-32 h-[800px] bg-[#D9233E] skew-x-[-24deg] block" />
             <span className="w-32 h-[800px] bg-[#D9233E] skew-x-[-24deg] block" />
@@ -240,20 +236,20 @@ export default function GratisHomepage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           {/* Left Column: High-Impact Editorial Typography */}
           <div className="lg:col-span-7 space-y-8">
-            <div className="inline-flex items-center gap-3 px-4 py-1.5 bg-[#151515] border-l-2 border-[#D9233E] text-xs font-mono tracking-widest text-white uppercase font-bold border border-[#333333]">
+            <div className="inline-flex items-center gap-3 px-4 py-1.5 bg-[#F5F4F0] border-l-2 border-[#D9233E] text-xs font-mono tracking-widest text-[#0B0B0B] uppercase font-bold border border-[#E5E5E5]">
               <span>INDUSTRIAL MANUFACTURING & ARCHITECTURAL MATERIALS</span>
             </div>
 
             {/* High Impact Editorial Typography */}
             <div className="space-y-1">
-              <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[0.9] uppercase text-white">
+              <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[0.9] uppercase text-[#0B0B0B]">
                 WHERE <br />
                 <span className="text-[#D9233E]">CRAFTSMANSHIP</span> <br />
                 MEETS <span className="text-[#D9233E]">MODERN LIVING</span>
               </h1>
             </div>
 
-            <p className="text-base md:text-lg text-[#AAAAAA] font-normal leading-relaxed max-w-xl">
+            <p className="text-base md:text-lg text-[#555555] font-normal leading-relaxed max-w-xl">
               At GRATIS, we manufacture and supply high-density timber, PVC boards, engineered veneers, and structural panels that power large-scale architectural projects.
             </p>
 
@@ -271,7 +267,7 @@ export default function GratisHomepage() {
 
               <a
                 href="#about"
-                className="border border-[#444444] hover:border-white hover:bg-white hover:text-[#0B0B0B] text-white px-6 py-4 text-xs font-mono font-bold uppercase tracking-widest rounded-none transition-all duration-300 flex items-center justify-center gap-2"
+                className="border border-[#0B0B0B] hover:bg-[#0B0B0B] hover:text-white text-[#0B0B0B] px-6 py-4 text-xs font-mono font-bold uppercase tracking-widest rounded-none transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <span>SCROLL TO EXPLORE ↓</span>
               </a>
