@@ -2,50 +2,39 @@
 
 @layer base {
   :root {
-    --bg-ivory: #FBF9F5;
-    --bg-warm-card: #F5F0E6;
-    --bg-wood-dark: #2B1D14;
+    --gratis-red: #D9233E;
+    --gratis-dark-red: #B51B32;
+    --gratis-black: #111111;
+    --gratis-white: #FFFFFF;
+    --gratis-gray-bg: #F3F3F1;
+    --gratis-border: #E5E5E5;
 
-    --text-primary: #0D0D0D;
-    --text-muted: #3D352E;
-    --accent-wood: #593922;
-    --border-light: rgba(26, 26, 26, 0.12);
+    --text-primary: #111111;
+    --text-muted: #666666;
   }
 
   body {
-    background-color: #EBDCCB;
-    background-image: url('/11.png');
-    background-size: 1200px auto;
-    background-repeat: repeat;
-    background-position: top left;
-    color: #0D0D0D;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #FFFFFF;
+    color: #111111;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     overflow-x: hidden;
   }
-
-
-
-
-
-
 }
 
-
-
-/* Custom Utilities */
-.glass-nav {
-  background: rgba(251, 249, 245, 0.85);
+/* Custom Navigation Glassmorphism */
+.glass-nav-white {
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(26, 26, 26, 0.06);
+  border-bottom: 1px solid #E5E5E5;
 }
 
 .glass-nav-scrolled {
-  background: rgba(23, 23, 23, 0.9);
+  background: rgba(17, 17, 17, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: #FBF9F5;
+  color: #FFFFFF;
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -54,4 +43,22 @@
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Chevron Background Clip & Shapes */
+.chevron-clip {
+  clip-path: polygon(0 0, 85% 0, 100% 100%, 15% 100%);
+}
+
+.chevron-tag {
+  position: relative;
+}
+.chevron-tag::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  h-height: 2px;
+  background-color: #D9233E;
+  margin-right: 8px;
+  vertical-align: middle;
 }
