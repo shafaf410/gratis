@@ -355,347 +355,339 @@ export default function GratisHomepage() {
       </section>
 
       {/* ==================== 4. LEADERSHIP / CHAIRMAN (PURE WHITE #FFFFFF) ==================== */}
-      {(activeSection === "all" || activeSection === "chairman") && (
-        <section id="chairman" className="py-24 bg-white text-[#0B0B0B] border-b border-[#E5E5E5]">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-[#F5F4F0] p-8 md:p-14 border border-[#E5E5E5] relative shadow-sm">
-              {/* Red Vertical Accent Line */}
-              <div className="absolute top-0 bottom-0 left-0 w-1.5 bg-[#D9233E]" />
+      <section id="chairman" className="py-24 bg-white text-[#0B0B0B] border-b border-[#E5E5E5]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-[#F5F4F0] p-8 md:p-14 border border-[#E5E5E5] relative shadow-sm">
+            {/* Red Vertical Accent Line */}
+            <div className="absolute top-0 bottom-0 left-0 w-1.5 bg-[#D9233E]" />
 
-              <div className="lg:col-span-4 relative">
-                <div className="relative border border-[#E5E5E5] bg-white overflow-hidden shadow-md">
-                  <img
-                    src="/chairman-noorudheen.jpg"
-                    alt="Noorudheen T, Chairman of Gratis Group"
-                    className="w-full h-[440px] object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
-                  />
-                  <div className="absolute bottom-0 inset-x-0 bg-white/95 p-4 border-t border-[#E5E5E5]">
-                    <h4 className="font-display text-lg uppercase text-[#0B0B0B] font-bold">
-                      Noorudheen T
+            <div className="lg:col-span-4 relative">
+              <div className="relative border border-[#E5E5E5] bg-white overflow-hidden shadow-md">
+                <img
+                  src="/chairman-noorudheen.jpg"
+                  alt="Noorudheen T, Chairman of Gratis Group"
+                  className="w-full h-[440px] object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
+                />
+                <div className="absolute bottom-0 inset-x-0 bg-white/95 p-4 border-t border-[#E5E5E5]">
+                  <h4 className="font-display text-lg uppercase text-[#0B0B0B] font-bold">
+                    Noorudheen T
+                  </h4>
+                  <p className="text-xs font-mono uppercase text-[#D9233E] font-bold mt-0.5">
+                    Chairman, GRATIS Group
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-8 space-y-6">
+              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
+                <span className="w-2 h-2 bg-[#D9233E]" />
+                <span>CHAIRMAN&apos;S VISION</span>
+              </div>
+
+              <h3 className="font-display text-4xl md:text-5xl font-extrabold text-[#0B0B0B] tracking-tight uppercase leading-none">
+                &quot;OUR VISION IS A BETTER TOMORROW&quot;
+              </h3>
+
+              <div className="space-y-4 text-sm text-[#444444] font-normal leading-relaxed">
+                <p>
+                  At GRATIS, we believe in creating lasting value through quality, innovation and an unwavering commitment to excellence. Our journey has been driven by people, trust and a vision to build a better tomorrow for generations to come.
+                </p>
+                <p>
+                  While we offer a diverse range of products and services, from plywood to hardware and retail, we strive to provide cost-effective quality and timely delivery in every single transaction.
+                </p>
+                <p>
+                  We are implementing project-based inventory management, staying ahead of technological advancements, and empowering carpenters and contractors through training and support.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-[#E5E5E5] text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
+                — NOORUDHEEN T • CHAIRMAN, GRATIS GROUP
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== 5. ABOUT GRATIS GROUP (SOFT GRAY #F5F4F0) ==================== */}
+      <section id="about" className="py-24 bg-[#F5F4F0] text-[#0B0B0B] border-b border-[#E5E5E5]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-6 relative">
+              <div className="overflow-hidden border border-[#E5E5E5] relative shadow-md bg-white">
+                <img
+                  src="/gratis-corporate.jpg"
+                  alt="GRATIS Group Headquarters"
+                  className="w-full h-[500px] object-cover transition-all duration-700"
+                />
+                <div className="absolute top-4 left-4 bg-[#0B0B0B] text-white px-4 py-2 text-xs font-mono uppercase tracking-widest border-l-2 border-[#D9233E]">
+                  ESTABLISHED 2000
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6 space-y-6">
+              <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
+                <span className="w-2 h-2 bg-[#D9233E]" />
+                <span>ABOUT GRATIS GROUP</span>
+              </div>
+
+              <h2 className="font-display text-4xl md:text-6xl font-extrabold text-[#0B0B0B] tracking-tight uppercase leading-none">
+                SIX VERTICALS. <br />
+                <span className="text-[#D9233E]">ONE COMMITMENT.</span>
+              </h2>
+
+              <div className="space-y-4 text-sm text-[#444444] leading-relaxed bg-white p-6 border border-[#E5E5E5]">
+                <p className="font-semibold text-[#0B0B0B]">
+                  Gratis Group of Companies was founded in the year 2000 by Noorudheen T, built on a conviction that builders, contractors, carpenters, and homeowners deserved a dependable, quality-first source for panel products and hardware.
+                </p>
+                <p>
+                  What began as wholesale trading has grown over more than two decades into a diversified conglomerate spanning manufacturing, wholesale distribution, organized retail, interior execution, consulting, and international trade across Kerala, Tamil Nadu, Karnataka, and the UAE.
+                </p>
+                <div className="text-xs text-[#0B0B0B] font-mono border-l-2 border-[#D9233E] pl-3 py-1.5 bg-[#F5F4F0]">
+                  Cochin Veneers, established in 1948, joined Gratis in 2023 — bringing 75+ years of hands-on heritage manufacturing into the fold.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Asymmetric Mission & Vision Editorial Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Mission Panel (White #FFFFFF) */}
+            <div className="bg-white border border-[#E5E5E5] p-8 md:p-12 space-y-4 relative shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
+                  PURPOSE & DRIVE
+                </span>
+                <div className="w-10 h-10 bg-[#D9233E] text-white flex items-center justify-center font-display font-bold text-lg">
+                  M
+                </div>
+              </div>
+              <h3 className="font-display text-3xl font-extrabold text-[#0B0B0B] uppercase tracking-tight">
+                OUR MISSION
+              </h3>
+              <p className="text-sm text-[#555555] font-normal leading-relaxed">
+                To deliver world-class products and spaces through innovation, integrity and a relentless focus on quality — empowering builders and contractors with materials engineered to last.
+              </p>
+              <div className="pt-4 flex items-center gap-2 text-xs font-mono font-bold text-[#D9233E] uppercase tracking-wider">
+                <span>QUALITY ASSURANCE & STANDARDS</span>
+                <ChevronRight size={14} />
+              </div>
+            </div>
+
+            {/* Vision Panel (Soft Gray #F5F4F0 + Red Border) */}
+            <div className="bg-[#F5F4F0] border-l-4 border-[#D9233E] border border-[#E5E5E5] p-8 md:p-12 space-y-4 relative shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
+                  GLOBAL DIRECTION
+                </span>
+                <div className="w-10 h-10 bg-[#0B0B0B] text-white flex items-center justify-center font-display font-bold text-lg">
+                  V
+                </div>
+              </div>
+              <h3 className="font-display text-3xl font-extrabold text-[#0B0B0B] uppercase tracking-tight">
+                OUR VISION
+              </h3>
+              <p className="text-sm text-[#555555] font-normal leading-relaxed">
+                To be a global leader in our industry, known for excellence, sustainability and a better future for communities across every market we enter.
+              </p>
+              <div className="pt-4 flex items-center gap-2 text-xs font-mono font-bold text-[#D9233E] uppercase tracking-wider">
+                <span>TRANSFORMATIVE INNOVATION</span>
+                <ChevronRight size={14} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== 6. BUSINESS VERTICALS (LARGE INDUSTRIAL GRID ON PURE WHITE #FFFFFF) ==================== */}
+      <section id="verticals" className="py-24 bg-white text-[#0B0B0B] border-b border-[#E5E5E5] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
+          <div className="space-y-3">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
+              CONGLOMERATE STRUCTURE
+            </span>
+            <h2 className="font-display text-4xl md:text-6xl font-extrabold text-[#0B0B0B] tracking-tight uppercase leading-none">
+              SIX VERTICALS. <span className="text-[#D9233E]">ONE GROUP.</span>
+            </h2>
+          </div>
+
+          {/* Industrial Editorial Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Featured Woodmall Panel (Occupies 7 Columns) */}
+            <div className="lg:col-span-7 bg-[#F5F4F0] p-8 md:p-12 border-l-4 border-[#D9233E] border border-[#E5E5E5] relative overflow-hidden flex flex-col justify-between space-y-8 shadow-md">
+              <div className="space-y-4">
+                <span className="px-3 py-1 bg-[#D9233E] text-white text-xs font-mono uppercase font-bold tracking-widest inline-block">
+                  ★ FLAGSHIP VERTICAL
+                </span>
+                <h3 className="font-display text-3xl md:text-5xl font-extrabold text-[#0B0B0B] uppercase leading-none">
+                  WOODMALL — <br />
+                  <span className="text-[#D9233E]">EVERY INTERIOR PRODUCT UNDER ONE ROOF</span>
+                </h3>
+                <p className="text-sm text-[#555555] font-normal leading-relaxed">
+                  Woodmall is where Gratis meets the customer directly — organized retail for plywood, MDF, laminates, PVC boards, hardware, and security locks across South India.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#E5E5E5]">
+                <div className="bg-white p-4 border border-[#E5E5E5] space-y-2">
+                  <h4 className="text-xs font-mono uppercase text-[#D9233E] font-bold">
+                    LIVE KERALA OUTLETS
+                  </h4>
+                  <ul className="text-xs text-[#444444] space-y-1 font-mono">
+                    <li>• Pilathara, Kannur</li>
+                    <li>• Calicut</li>
+                    <li>• Puthanathani, Malappuram</li>
+                    <li>• Manjeri & Malappuram</li>
+                    <li>• Kalamassery, Ernakulam</li>
+                  </ul>
+                </div>
+
+                <div className="bg-white p-4 border border-[#E5E5E5] space-y-2">
+                  <h4 className="text-xs font-mono uppercase text-[#D9233E] font-bold">
+                    EXPANSION PIPELINE
+                  </h4>
+                  <ul className="text-xs text-[#444444] space-y-1 font-mono">
+                    <li>• Trivandrum</li>
+                    <li>• Kottayam</li>
+                    <li>• Trichur</li>
+                    <li>• Perinthalmanna</li>
+                    <li>• Kannur & Nadapuram</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Secondary Verticals Asymmetric Grid (Occupies 5 Columns) */}
+            <div className="lg:col-span-5 grid grid-cols-1 gap-4">
+              {[
+                {
+                  num: "01",
+                  title: "MANUFACTURING",
+                  entity: "Cochin Veneers LLP & Astrafort Panel Products",
+                  desc: "75+ years of hands-on timber manufacturing heritage.",
+                },
+                {
+                  num: "02",
+                  title: "INTERIOR SOLUTIONS",
+                  entity: "G-Space Interio Pvt Ltd",
+                  desc: "Full interior design and contracting execution.",
+                },
+                {
+                  num: "03",
+                  title: "TRADING & RETAIL",
+                  entity: "Gratis Panel Products Pvt Ltd",
+                  desc: "Holding entity for Woodmall retail desks & B2B wholesale.",
+                },
+                {
+                  num: "04",
+                  title: "STATE EXPANSION",
+                  entity: "Sanear Exim Intl. & Gratis Industries",
+                  desc: "Operating models in Karnataka and Tamil Nadu.",
+                },
+                {
+                  num: "05",
+                  title: "INTERNATIONAL TRADING",
+                  entity: "Gratis Building & Construction LLC (Dubai & Ajman)",
+                  desc: "Wholesale & retail trading desks in the United Arab Emirates.",
+                },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[#F5F4F0] p-5 border border-[#E5E5E5] hover:border-[#D9233E] transition-colors flex items-start gap-4 group shadow-xs"
+                >
+                  <span className="font-mono text-xl font-extrabold text-[#D9233E]">
+                    {item.num}
+                  </span>
+                  <div>
+                    <h4 className="font-display text-base font-bold uppercase tracking-tight text-[#0B0B0B] group-hover:text-[#D9233E] transition-colors">
+                      {item.title} — {item.entity}
                     </h4>
-                    <p className="text-xs font-mono uppercase text-[#D9233E] font-bold mt-0.5">
-                      Chairman, GRATIS Group
+                    <p className="text-xs text-[#555555] font-normal mt-1 leading-relaxed">
+                      {item.desc}
                     </p>
                   </div>
                 </div>
-              </div>
-
-              <div className="lg:col-span-8 space-y-6">
-                <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
-                  <span className="w-2 h-2 bg-[#D9233E]" />
-                  <span>CHAIRMAN&apos;S VISION</span>
-                </div>
-
-                <h3 className="font-display text-4xl md:text-5xl font-extrabold text-[#0B0B0B] tracking-tight uppercase leading-none">
-                  &quot;OUR VISION IS A BETTER TOMORROW&quot;
-                </h3>
-
-                <div className="space-y-4 text-sm text-[#444444] font-normal leading-relaxed">
-                  <p>
-                    At GRATIS, we believe in creating lasting value through quality, innovation and an unwavering commitment to excellence. Our journey has been driven by people, trust and a vision to build a better tomorrow for generations to come.
-                  </p>
-                  <p>
-                    While we offer a diverse range of products and services, from plywood to hardware and retail, we strive to provide cost-effective quality and timely delivery in every single transaction.
-                  </p>
-                  <p>
-                    We are implementing project-based inventory management, staying ahead of technological advancements, and empowering carpenters and contractors through training and support.
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-[#E5E5E5] text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
-                  — NOORUDHEEN T • CHAIRMAN, GRATIS GROUP
-                </div>
-              </div>
+              ))}
             </div>
           </div>
-        </section>
-      )}
-
-      {/* ==================== 5. ABOUT GRATIS GROUP (SOFT GRAY #F5F4F0) ==================== */}
-      {(activeSection === "all" || activeSection === "about") && (
-        <section id="about" className="py-24 bg-[#F5F4F0] text-[#0B0B0B] border-b border-[#E5E5E5]">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              <div className="lg:col-span-6 relative">
-                <div className="overflow-hidden border border-[#E5E5E5] relative shadow-md bg-white">
-                  <img
-                    src="/gratis-corporate.jpg"
-                    alt="GRATIS Group Headquarters"
-                    className="w-full h-[500px] object-cover transition-all duration-700"
-                  />
-                  <div className="absolute top-4 left-4 bg-[#0B0B0B] text-white px-4 py-2 text-xs font-mono uppercase tracking-widest border-l-2 border-[#D9233E]">
-                    ESTABLISHED 2000
-                  </div>
-                </div>
-              </div>
-
-              <div className="lg:col-span-6 space-y-6">
-                <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
-                  <span className="w-2 h-2 bg-[#D9233E]" />
-                  <span>ABOUT GRATIS GROUP</span>
-                </div>
-
-                <h2 className="font-display text-4xl md:text-6xl font-extrabold text-[#0B0B0B] tracking-tight uppercase leading-none">
-                  SIX VERTICALS. <br />
-                  <span className="text-[#D9233E]">ONE COMMITMENT.</span>
-                </h2>
-
-                <div className="space-y-4 text-sm text-[#444444] leading-relaxed bg-white p-6 border border-[#E5E5E5]">
-                  <p className="font-semibold text-[#0B0B0B]">
-                    Gratis Group of Companies was founded in the year 2000 by Noorudheen T, built on a conviction that builders, contractors, carpenters, and homeowners deserved a dependable, quality-first source for panel products and hardware.
-                  </p>
-                  <p>
-                    What began as wholesale trading has grown over more than two decades into a diversified conglomerate spanning manufacturing, wholesale distribution, organized retail, interior execution, consulting, and international trade across Kerala, Tamil Nadu, Karnataka, and the UAE.
-                  </p>
-                  <div className="text-xs text-[#0B0B0B] font-mono border-l-2 border-[#D9233E] pl-3 py-1.5 bg-[#F5F4F0]">
-                    Cochin Veneers, established in 1948, joined Gratis in 2023 — bringing 75+ years of hands-on heritage manufacturing into the fold.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Asymmetric Mission & Vision Editorial Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Mission Panel (White #FFFFFF) */}
-              <div className="bg-white border border-[#E5E5E5] p-8 md:p-12 space-y-4 relative shadow-sm">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
-                    PURPOSE & DRIVE
-                  </span>
-                  <div className="w-10 h-10 bg-[#D9233E] text-white flex items-center justify-center font-display font-bold text-lg">
-                    M
-                  </div>
-                </div>
-                <h3 className="font-display text-3xl font-extrabold text-[#0B0B0B] uppercase tracking-tight">
-                  OUR MISSION
-                </h3>
-                <p className="text-sm text-[#555555] font-normal leading-relaxed">
-                  To deliver world-class products and spaces through innovation, integrity and a relentless focus on quality — empowering builders and contractors with materials engineered to last.
-                </p>
-                <div className="pt-4 flex items-center gap-2 text-xs font-mono font-bold text-[#D9233E] uppercase tracking-wider">
-                  <span>QUALITY ASSURANCE & STANDARDS</span>
-                  <ChevronRight size={14} />
-                </div>
-              </div>
-
-              {/* Vision Panel (Soft Gray #F5F4F0 + Red Border) */}
-              <div className="bg-[#F5F4F0] border-l-4 border-[#D9233E] border border-[#E5E5E5] p-8 md:p-12 space-y-4 relative shadow-sm">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
-                    GLOBAL DIRECTION
-                  </span>
-                  <div className="w-10 h-10 bg-[#0B0B0B] text-white flex items-center justify-center font-display font-bold text-lg">
-                    V
-                  </div>
-                </div>
-                <h3 className="font-display text-3xl font-extrabold text-[#0B0B0B] uppercase tracking-tight">
-                  OUR VISION
-                </h3>
-                <p className="text-sm text-[#555555] font-normal leading-relaxed">
-                  To be a global leader in our industry, known for excellence, sustainability and a better future for communities across every market we enter.
-                </p>
-                <div className="pt-4 flex items-center gap-2 text-xs font-mono font-bold text-[#D9233E] uppercase tracking-wider">
-                  <span>TRANSFORMATIVE INNOVATION</span>
-                  <ChevronRight size={14} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ==================== 6. BUSINESS VERTICALS (LARGE INDUSTRIAL GRID ON PURE WHITE #FFFFFF) ==================== */}
-      {(activeSection === "all" || activeSection === "verticals") && (
-        <section id="verticals" className="py-24 bg-white text-[#0B0B0B] border-b border-[#E5E5E5] relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
-            <div className="space-y-3">
-              <span className="text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
-                CONGLOMERATE STRUCTURE
-              </span>
-              <h2 className="font-display text-4xl md:text-6xl font-extrabold text-[#0B0B0B] tracking-tight uppercase leading-none">
-                SIX VERTICALS. <span className="text-[#D9233E]">ONE GROUP.</span>
-              </h2>
-            </div>
-
-            {/* Industrial Editorial Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-              {/* Featured Woodmall Panel (Occupies 7 Columns) */}
-              <div className="lg:col-span-7 bg-[#F5F4F0] p-8 md:p-12 border-l-4 border-[#D9233E] border border-[#E5E5E5] relative overflow-hidden flex flex-col justify-between space-y-8 shadow-md">
-                <div className="space-y-4">
-                  <span className="px-3 py-1 bg-[#D9233E] text-white text-xs font-mono uppercase font-bold tracking-widest inline-block">
-                    ★ FLAGSHIP VERTICAL
-                  </span>
-                  <h3 className="font-display text-3xl md:text-5xl font-extrabold text-[#0B0B0B] uppercase leading-none">
-                    WOODMALL — <br />
-                    <span className="text-[#D9233E]">EVERY INTERIOR PRODUCT UNDER ONE ROOF</span>
-                  </h3>
-                  <p className="text-sm text-[#555555] font-normal leading-relaxed">
-                    Woodmall is where Gratis meets the customer directly — organized retail for plywood, MDF, laminates, PVC boards, hardware, and security locks across South India.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#E5E5E5]">
-                  <div className="bg-white p-4 border border-[#E5E5E5] space-y-2">
-                    <h4 className="text-xs font-mono uppercase text-[#D9233E] font-bold">
-                      LIVE KERALA OUTLETS
-                    </h4>
-                    <ul className="text-xs text-[#444444] space-y-1 font-mono">
-                      <li>• Pilathara, Kannur</li>
-                      <li>• Calicut</li>
-                      <li>• Puthanathani, Malappuram</li>
-                      <li>• Manjeri & Malappuram</li>
-                      <li>• Kalamassery, Ernakulam</li>
-                    </ul>
-                  </div>
-
-                  <div className="bg-white p-4 border border-[#E5E5E5] space-y-2">
-                    <h4 className="text-xs font-mono uppercase text-[#D9233E] font-bold">
-                      EXPANSION PIPELINE
-                    </h4>
-                    <ul className="text-xs text-[#444444] space-y-1 font-mono">
-                      <li>• Trivandrum</li>
-                      <li>• Kottayam</li>
-                      <li>• Trichur</li>
-                      <li>• Perinthalmanna</li>
-                      <li>• Kannur & Nadapuram</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* Secondary Verticals Asymmetric Grid (Occupies 5 Columns) */}
-              <div className="lg:col-span-5 grid grid-cols-1 gap-4">
-                {[
-                  {
-                    num: "01",
-                    title: "MANUFACTURING",
-                    entity: "Cochin Veneers LLP & Astrafort Panel Products",
-                    desc: "75+ years of hands-on timber manufacturing heritage.",
-                  },
-                  {
-                    num: "02",
-                    title: "INTERIOR SOLUTIONS",
-                    entity: "G-Space Interio Pvt Ltd",
-                    desc: "Full interior design and contracting execution.",
-                  },
-                  {
-                    num: "03",
-                    title: "TRADING & RETAIL",
-                    entity: "Gratis Panel Products Pvt Ltd",
-                    desc: "Holding entity for Woodmall retail desks & B2B wholesale.",
-                  },
-                  {
-                    num: "04",
-                    title: "STATE EXPANSION",
-                    entity: "Sanear Exim Intl. & Gratis Industries",
-                    desc: "Operating models in Karnataka and Tamil Nadu.",
-                  },
-                  {
-                    num: "05",
-                    title: "INTERNATIONAL TRADING",
-                    entity: "Gratis Building & Construction LLC (Dubai & Ajman)",
-                    desc: "Wholesale & retail trading desks in the United Arab Emirates.",
-                  },
-                ].map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-[#F5F4F0] p-5 border border-[#E5E5E5] hover:border-[#D9233E] transition-colors flex items-start gap-4 group shadow-xs"
-                  >
-                    <span className="font-mono text-xl font-extrabold text-[#D9233E]">
-                      {item.num}
-                    </span>
-                    <div>
-                      <h4 className="font-display text-base font-bold uppercase tracking-tight text-[#0B0B0B] group-hover:text-[#D9233E] transition-colors">
-                        {item.title} — {item.entity}
-                      </h4>
-                      <p className="text-xs text-[#555555] font-normal mt-1 leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* ==================== 7. PRODUCTS RANGE (SOFT GRAY #F5F4F0) ==================== */}
-      {(activeSection === "all" || activeSection === "products") && (
-        <section id="products" className="py-24 bg-[#F5F4F0] text-[#0B0B0B] border-b border-[#E5E5E5]">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
-            <div className="space-y-3">
-              <span className="text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
-                OUR PRODUCTS
-              </span>
-              <h2 className="font-display text-4xl md:text-6xl font-extrabold text-[#0B0B0B] tracking-tight uppercase leading-none">
-                EVERYTHING YOU NEED. <br />
-                <span className="text-[#D9233E]">ALL IN ONE PLACE.</span>
-              </h2>
+      <section id="products" className="py-24 bg-[#F5F4F0] text-[#0B0B0B] border-b border-[#E5E5E5]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-16">
+          <div className="space-y-3">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
+              OUR PRODUCTS
+            </span>
+            <h2 className="font-display text-4xl md:text-6xl font-extrabold text-[#0B0B0B] tracking-tight uppercase leading-none">
+              EVERYTHING YOU NEED. <br />
+              <span className="text-[#D9233E]">ALL IN ONE PLACE.</span>
+            </h2>
+          </div>
+
+          {/* Asymmetric Portfolio Project Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Feature Project (7 Columns) */}
+            <div className="lg:col-span-7 group relative h-[500px] border border-[#E5E5E5] overflow-hidden bg-white shadow-md">
+              <img
+                src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200&auto=format&fit=crop"
+                alt="RESIDENTIAL SPACES"
+                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end text-white space-y-2">
+                <span className="text-xs font-mono uppercase text-[#D9233E] font-bold">
+                  FEATURED CATEGORY
+                </span>
+                <h3 className="font-display text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-white">
+                  RESIDENTIAL SPACES
+                </h3>
+                <p className="text-xs text-white/80 font-normal max-w-md leading-relaxed">
+                  Modern living, redefined with moisture-proof PVC foam boards, natural veneers, and custom cabinetry.
+                </p>
+              </div>
             </div>
 
-            {/* Asymmetric Portfolio Project Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-              {/* Feature Project (7 Columns) */}
-              <div className="lg:col-span-7 group relative h-[500px] border border-[#E5E5E5] overflow-hidden bg-white shadow-md">
-                <img
-                  src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200&auto=format&fit=crop"
-                  alt="RESIDENTIAL SPACES"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end text-white space-y-2">
-                  <span className="text-xs font-mono uppercase text-[#D9233E] font-bold">
-                    FEATURED CATEGORY
-                  </span>
-                  <h3 className="font-display text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-white">
-                    RESIDENTIAL SPACES
-                  </h3>
-                  <p className="text-xs text-white/80 font-normal max-w-md leading-relaxed">
-                    Modern living, redefined with moisture-proof PVC foam boards, natural veneers, and custom cabinetry.
-                  </p>
-                </div>
-              </div>
-
-              {/* 2 Asymmetric Projects (5 Columns) */}
-              <div className="lg:col-span-5 grid grid-cols-1 gap-8">
-                {[
-                  {
-                    title: "COMMERCIAL SPACES",
-                    sub: "Built for high-traffic corporate offices and retail storefronts.",
-                    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
-                  },
-                  {
-                    title: "ARCHITECTURAL PROJECTS",
-                    sub: "Structural plywoods and louvers engineered for load durability.",
-                    img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop",
-                  },
-                ].map((card, idx) => (
-                  <div
-                    key={idx}
-                    className="group relative h-[236px] border border-[#E5E5E5] overflow-hidden bg-white shadow-md"
-                  >
-                    <img
-                      src={card.img}
-                      alt={card.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                    <div className="absolute inset-0 p-6 flex flex-col justify-end text-white space-y-1">
-                      <h4 className="font-display text-xl font-extrabold uppercase tracking-tight text-white">
-                        {card.title}
-                      </h4>
-                      <p className="text-xs text-white/80 font-normal leading-relaxed">
-                        {card.sub}
-                      </p>
-                    </div>
+            {/* 2 Asymmetric Projects (5 Columns) */}
+            <div className="lg:col-span-5 grid grid-cols-1 gap-8">
+              {[
+                {
+                  title: "COMMERCIAL SPACES",
+                  sub: "Built for high-traffic corporate offices and retail storefronts.",
+                  img: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop",
+                },
+                {
+                  title: "ARCHITECTURAL PROJECTS",
+                  sub: "Structural plywoods and louvers engineered for load durability.",
+                  img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop",
+                },
+              ].map((card, idx) => (
+                <div
+                  key={idx}
+                  className="group relative h-[236px] border border-[#E5E5E5] overflow-hidden bg-white shadow-md"
+                >
+                  <img
+                    src={card.img}
+                    alt={card.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                  <div className="absolute inset-0 p-6 flex flex-col justify-end text-white space-y-1">
+                    <h4 className="font-display text-xl font-extrabold uppercase tracking-tight text-white">
+                      {card.title}
+                    </h4>
+                    <p className="text-xs text-white/80 font-normal leading-relaxed">
+                      {card.sub}
+                    </p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* ==================== 8. HUGE NUMERICAL STATISTICS (SOFT GRAY #F5F4F0) ==================== */}
       <section className="py-24 bg-white text-[#0B0B0B] border-b border-[#E5E5E5] relative overflow-hidden">
@@ -778,153 +770,151 @@ export default function GratisHomepage() {
       </section>
 
       {/* ==================== 10. CONTACT FORM (SOFT GRAY #F5F4F0) ==================== */}
-      {(activeSection === "all" || activeSection === "contact") && (
-        <section id="contact" className="py-24 bg-[#F5F4F0] text-[#0B0B0B] border-b border-[#E5E5E5]">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-              {/* Contact Info */}
-              <div className="lg:col-span-5 space-y-8">
-                <div className="space-y-3">
-                  <span className="text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
-                    GET IN TOUCH
-                  </span>
-                  <h2 className="font-display text-4xl md:text-5xl font-extrabold text-[#0B0B0B] uppercase tracking-tight leading-none">
-                    HAVE A PROJECT IN MIND?
-                  </h2>
-                  <p className="text-sm text-[#555555] font-normal leading-relaxed">
-                    Contact our trade desk for wholesale inquiries, project estimations, or technical specifications.
-                  </p>
-                </div>
-
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-white border border-[#E5E5E5] text-[#D9233E]">
-                      <Phone size={20} />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-mono uppercase text-[#666666]">
-                        Direct Call / WhatsApp
-                      </h4>
-                      <p className="font-display text-xl font-bold text-[#0B0B0B] mt-0.5">
-                        +91 95440 48877
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-white border border-[#E5E5E5] text-[#D9233E]">
-                      <Mail size={20} />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-mono uppercase text-[#666666]">
-                        Email Inquiry
-                      </h4>
-                      <p className="font-mono text-base font-bold text-[#0B0B0B] mt-0.5">
-                        info@gratisgroup.com
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-white border border-[#E5E5E5] text-[#D9233E]">
-                      <MapPin size={20} />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-mono uppercase text-[#666666]">
-                        Headquarters & Operations
-                      </h4>
-                      <p className="text-xs font-bold text-[#0B0B0B] mt-0.5">
-                        Kerala, Tamil Nadu, Karnataka (India) & Dubai / Ajman (UAE)
-                      </p>
-                    </div>
-                  </div>
-                </div>
+      <section id="contact" className="py-24 bg-[#F5F4F0] text-[#0B0B0B] border-b border-[#E5E5E5]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            {/* Contact Info */}
+            <div className="lg:col-span-5 space-y-8">
+              <div className="space-y-3">
+                <span className="text-xs font-mono uppercase tracking-widest text-[#D9233E] font-bold">
+                  GET IN TOUCH
+                </span>
+                <h2 className="font-display text-4xl md:text-5xl font-extrabold text-[#0B0B0B] uppercase tracking-tight leading-none">
+                  HAVE A PROJECT IN MIND?
+                </h2>
+                <p className="text-sm text-[#555555] font-normal leading-relaxed">
+                  Contact our trade desk for wholesale inquiries, project estimations, or technical specifications.
+                </p>
               </div>
 
-              {/* Contact Form */}
-              <div className="lg:col-span-7 bg-white p-8 md:p-12 border border-[#E5E5E5] shadow-sm">
-                {formSubmitted ? (
-                  <div className="p-8 bg-[#F5F4F0] border-l-4 border-[#D9233E] text-center space-y-3">
-                    <CheckCircle2 className="w-12 h-12 text-[#D9233E] mx-auto" />
-                    <h3 className="font-display text-2xl font-extrabold text-[#0B0B0B] uppercase">
-                      INQUIRY RECEIVED!
-                    </h3>
-                    <p className="text-xs text-[#666666]">
-                      Thank you for contacting GRATIS Group. Our trade specialist will reach out to you shortly.
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-white border border-[#E5E5E5] text-[#D9233E]">
+                    <Phone size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-mono uppercase text-[#666666]">
+                      Direct Call / WhatsApp
+                    </h4>
+                    <p className="font-display text-xl font-bold text-[#0B0B0B] mt-0.5">
+                      +91 95440 48877
                     </p>
                   </div>
-                ) : (
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      setFormSubmitted(true);
-                    }}
-                    className="space-y-4"
-                  >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-mono uppercase text-[#0B0B0B] mb-1 font-bold">
-                          Name
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          placeholder="Your Full Name"
-                          className="w-full bg-[#F5F4F0] border border-[#E5E5E5] p-3.5 text-xs text-[#0B0B0B] focus:border-[#D9233E] focus:outline-none"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs font-mono uppercase text-[#0B0B0B] mb-1 font-bold">
-                          Email
-                        </label>
-                        <input
-                          type="email"
-                          required
-                          placeholder="yourname@domain.com"
-                          className="w-full bg-[#F5F4F0] border border-[#E5E5E5] p-3.5 text-xs text-[#0B0B0B] focus:border-[#D9233E] focus:outline-none"
-                        />
-                      </div>
-                    </div>
+                </div>
 
-                    <div>
-                      <label className="block text-xs font-mono uppercase text-[#0B0B0B] mb-1 font-bold">
-                        Project / Inquiry Type
-                      </label>
-                      <select className="w-full bg-[#F5F4F0] border border-[#E5E5E5] p-3.5 text-xs text-[#0B0B0B] focus:border-[#D9233E] focus:outline-none">
-                        <option>Wholesale Trade Inquiry</option>
-                        <option>Woodmall Retail Inquiry</option>
-                        <option>Plywood & PVC Specifications</option>
-                        <option>Interior Contracting Project</option>
-                        <option>International Export (UAE)</option>
-                      </select>
-                    </div>
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-white border border-[#E5E5E5] text-[#D9233E]">
+                    <Mail size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-mono uppercase text-[#666666]">
+                      Email Inquiry
+                    </h4>
+                    <p className="font-mono text-base font-bold text-[#0B0B0B] mt-0.5">
+                      info@gratisgroup.com
+                    </p>
+                  </div>
+                </div>
 
-                    <div>
-                      <label className="block text-xs font-mono uppercase text-[#0B0B0B] mb-1 font-bold">
-                        Message
-                      </label>
-                      <textarea
-                        rows={4}
-                        required
-                        placeholder="Tell us about your project or required material quantities..."
-                        className="w-full bg-[#F5F4F0] border border-[#E5E5E5] p-3.5 text-xs text-[#0B0B0B] focus:border-[#D9233E] focus:outline-none resize-none"
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full bg-[#D9233E] hover:bg-[#B51B32] text-white py-4 text-xs font-mono font-bold uppercase tracking-widest rounded-none shadow-md transition-all duration-300 flex items-center justify-center gap-2"
-                    >
-                      <span>SEND MESSAGE</span>
-                      <Send size={14} />
-                    </button>
-                  </form>
-                )}
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-white border border-[#E5E5E5] text-[#D9233E]">
+                    <MapPin size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-mono uppercase text-[#666666]">
+                      Headquarters & Operations
+                    </h4>
+                    <p className="text-xs font-bold text-[#0B0B0B] mt-0.5">
+                      Kerala, Tamil Nadu, Karnataka (India) & Dubai / Ajman (UAE)
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
+
+            {/* Contact Form */}
+            <div className="lg:col-span-7 bg-white p-8 md:p-12 border border-[#E5E5E5] shadow-sm">
+              {formSubmitted ? (
+                <div className="p-8 bg-[#F5F4F0] border-l-4 border-[#D9233E] text-center space-y-3">
+                  <CheckCircle2 className="w-12 h-12 text-[#D9233E] mx-auto" />
+                  <h3 className="font-display text-2xl font-extrabold text-[#0B0B0B] uppercase">
+                    INQUIRY RECEIVED!
+                  </h3>
+                  <p className="text-xs text-[#666666]">
+                    Thank you for contacting GRATIS Group. Our trade specialist will reach out to you shortly.
+                  </p>
+                </div>
+              ) : (
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setFormSubmitted(true);
+                  }}
+                  className="space-y-4"
+                >
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono uppercase text-[#0B0B0B] mb-1 font-bold">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Your Full Name"
+                        className="w-full bg-[#F5F4F0] border border-[#E5E5E5] p-3.5 text-xs text-[#0B0B0B] focus:border-[#D9233E] focus:outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono uppercase text-[#0B0B0B] mb-1 font-bold">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="yourname@domain.com"
+                        className="w-full bg-[#F5F4F0] border border-[#E5E5E5] p-3.5 text-xs text-[#0B0B0B] focus:border-[#D9233E] focus:outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono uppercase text-[#0B0B0B] mb-1 font-bold">
+                      Project / Inquiry Type
+                    </label>
+                    <select className="w-full bg-[#F5F4F0] border border-[#E5E5E5] p-3.5 text-xs text-[#0B0B0B] focus:border-[#D9233E] focus:outline-none">
+                      <option>Wholesale Trade Inquiry</option>
+                      <option>Woodmall Retail Inquiry</option>
+                      <option>Plywood & PVC Specifications</option>
+                      <option>Interior Contracting Project</option>
+                      <option>International Export (UAE)</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono uppercase text-[#0B0B0B] mb-1 font-bold">
+                      Message
+                    </label>
+                    <textarea
+                      rows={4}
+                      required
+                      placeholder="Tell us about your project or required material quantities..."
+                      className="w-full bg-[#F5F4F0] border border-[#E5E5E5] p-3.5 text-xs text-[#0B0B0B] focus:border-[#D9233E] focus:outline-none resize-none"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-[#D9233E] hover:bg-[#B51B32] text-white py-4 text-xs font-mono font-bold uppercase tracking-widest rounded-none shadow-md transition-all duration-300 flex items-center justify-center gap-2"
+                  >
+                    <span>SEND MESSAGE</span>
+                    <Send size={14} />
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* ==================== 11. FOOTER (CLEAN WHITE #FFFFFF) ==================== */}
       <footer className="bg-white text-[#0B0B0B] border-t border-[#E5E5E5] pt-16 pb-12">
