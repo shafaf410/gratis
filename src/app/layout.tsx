@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "GRATIS India | PVC Foam Boards, Plywood, MDF, Laminates & Veneer in Kerala",
-  description: "Trusted supplier of PVC Foam Boards, Plywood, MDF, Veneer, Laminates, and Hylam Sheets in Kerala, India. Over 25 years of material excellence and reliable service.",
+  title: "GRATIS Group | Industrial Timber & Architectural Materials",
+  description: "Leader in manufacturing, wholesale, Woodmall retail, and architectural panel solutions across South India & UAE.",
 };
 
 export default function RootLayout({
@@ -13,7 +13,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="antialiased selection:bg-[#8C6D53] selection:text-white">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="antialiased selection:bg-[#D9233E] selection:text-white bg-[#0B0B0B] text-[#FFFFFF]">
         {children}
       </body>
     </html>
