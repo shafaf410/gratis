@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight, ChevronRight, Phone, Mail, MapPin, Check, Shield, Layers, Sparkles, Send, Award, Clock } from "lucide-react";
 import Lenis from "lenis";
-import HeroScrollVideo from "./HeroScrollVideo";
 
 export default function GratisHomepage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,8 +28,7 @@ export default function GratisHomepage() {
     requestAnimationFrame(raf);
 
     const handleScroll = () => {
-      // Hide nav bar while in pure hero video section, reveal when reaching main content
-      if (window.scrollY > window.innerHeight * 1.5) {
+      if (window.scrollY > 80) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -149,8 +147,8 @@ export default function GratisHomepage() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "glass-nav-scrolled py-3 shadow-xl opacity-100 translate-y-0 pointer-events-auto"
-            : "opacity-0 -translate-y-full pointer-events-none"
+            ? "glass-nav-scrolled py-3 shadow-xl"
+            : "glass-nav py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -298,8 +296,57 @@ export default function GratisHomepage() {
       </AnimatePresence>
 
 
-      {/* HERO SCROLL ANIMATION SECTION (OVERLAY APPEARS ON LAST FRAME) */}
-      <HeroScrollVideo />
+      {/* LUXURY ARCHITECTURAL HERO SECTION */}
+      <section className="relative w-full h-screen bg-[#140E0A] overflow-hidden select-none border-b border-black/10">
+        {/* Background Image */}
+        <div className="absolute inset-0 w-full h-full">
+          <img
+            src="/hero-frames/ezgif-frame-204.jpg"
+            alt="Gratis Luxury Interior Living Space"
+            className="w-full h-full object-cover brightness-[0.92] contrast-[1.05]"
+          />
+        </div>
+
+        {/* Ambient Overlay Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/40 pointer-events-none" />
+
+        {/* Content Container */}
+        <div className="absolute inset-0 z-20 flex flex-col justify-between p-6 md:p-12">
+          {/* Top Subtle Subtitle */}
+          <div className="pt-24 md:pt-28 max-w-2xl space-y-4">
+            <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#D4A373] bg-black/60 px-4 py-1.5 rounded-full backdrop-blur-md border border-[#D4A373]/30 inline-block shadow-lg">
+              ARCHITECTURAL INTERIOR SOLUTIONS
+            </span>
+            <h1 className="text-4xl md:text-6xl font-serif text-white font-medium leading-tight drop-shadow-2xl">
+              Where Craftsmanship <br />
+              <span className="italic text-[#D4A373]">Meets Modern Living</span>
+            </h1>
+            <p className="text-sm md:text-base text-white/80 font-light max-w-lg leading-relaxed drop-shadow">
+              Experience our 100% waterproof PVC paneling, structural veneers, and customized cabinetry engineered for timeless homes.
+            </p>
+          </div>
+
+          {/* Bottom Floating Buttons matching screenshot */}
+          <div className="w-full flex items-center justify-between pointer-events-auto">
+            {/* Bottom-Left N' Badge Button */}
+            <button
+              className="w-11 h-11 rounded-full bg-black/85 hover:bg-black text-white font-serif font-bold text-base flex items-center justify-center shadow-2xl border border-white/20 hover:scale-110 active:scale-95 transition-all duration-300 group"
+              title="Gratis Group Brand"
+            >
+              <span className="group-hover:rotate-12 transition-transform">N&apos;</span>
+            </button>
+
+            {/* Bottom-Right Call Icon Button */}
+            <a
+              href="tel:+919544048877"
+              className="w-12 h-12 rounded-full bg-[#8C6D53] hover:bg-[#725740] text-white flex items-center justify-center shadow-2xl border border-white/20 hover:scale-110 active:scale-95 transition-all duration-300"
+              title="Call Gratis Direct"
+            >
+              <Phone size={20} className="fill-white" />
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* WEBSITE STARTS IMMEDIATELY AFTER HERO WITH 11.PNG BG INTEGRATION & HIGH CONTRAST TINT */}
       <div 
