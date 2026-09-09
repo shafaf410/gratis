@@ -15,20 +15,32 @@ export default function HeroScrollVideo() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
-  const [loadedCount, setLoadedCount] = useState(0);
+  const [isFirstFrameReady, setIsFirstFrameReady] = useState(false);
   const [overlayOpacity, setOverlayOpacity] = useState(0);
 
   useEffect(() => {
     const images: HTMLImageElement[] = [];
-    let loaded = 0;
+    let loadedCount = 0;
 
-    // Preload all 203 image frames
-    for (let i = 0; i < TOTAL_FRAMES; i++) {
+    // Load first frame immediately to unblock view
+    const firstImg = new Image();
+    firstImg.src = getFramePath(0);
+    firstImg.onload = () => setIsFirstFrameReady(true);
+    firstImg.onerror = () => setIsFirstFrameReady(true);
+    if (firstImg.complete) setIsFirstFrameReady(true);
+    images.push(firstImg);
+
+    // Preload remaining frames asynchronously in background
+    for (let i = 1; i < TOTAL_FRAMES; i++) {
       const img = new Image();
       img.src = getFramePath(i);
       img.onload = () => {
-        loaded++;
-        setLoadedCount(loaded);
+        loadedCount++;
+        if (loadedCount >= 5) setIsFirstFrameReady(true);
+      };
+      img.onerror = () => {
+        loadedCount++;
+        if (loadedCount >= 5) setIsFirstFrameReady(true);
       };
       images.push(img);
     }
@@ -59,9 +71,9 @@ export default function HeroScrollVideo() {
       const idx = Math.min(Math.max(Math.round(frameIndex), 0), TOTAL_FRAMES - 1);
       const img = imagesRef.current[idx];
 
-      if (img && img.complete && img.naturalWidth > 0) {
-        const iWidth = img.naturalWidth;
-        const iHeight = img.naturalHeight;
+      if (img && (img.complete || img.naturalWidth > 0)) {
+        const iWidth = img.naturalWidth || 1920;
+        const iHeight = img.naturalHeight || 1080;
         const cWidth = canvas.width;
         const cHeight = canvas.height;
 
@@ -99,7 +111,7 @@ export default function HeroScrollVideo() {
           const frameProgress = Math.min(scrollFraction / 0.80, 1.0);
           targetFrame = frameProgress * (TOTAL_FRAMES - 1);
 
-          // Calculate overlay opacity: fade in between 70% and 90% scroll
+          // Calculate overlay opacity: fade in between 65% and 90% scroll
           if (scrollFraction > 0.65) {
             const opacity = Math.min(Math.max((scrollFraction - 0.65) / 0.25, 0), 1);
             setOverlayOpacity(opacity);
@@ -129,11 +141,11 @@ export default function HeroScrollVideo() {
     <div ref={containerRef} className="relative w-full h-[280vh] bg-black select-none">
       {/* Sticky Fullscreen Canvas Container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center bg-black">
-        {/* Loading overlay while first few frames load */}
-        {loadedCount < 10 && (
+        {/* Instant loader fallback (disappears as soon as 1st frame is ready) */}
+        {!isFirstFrameReady && (
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-black text-white gap-3">
             <div className="w-8 h-8 border-2 border-[#D4A373] border-t-transparent rounded-full animate-spin" />
-            <span className="text-xs font-mono tracking-widest text-[#D4A373] uppercase">Loading Frames...</span>
+            <span className="text-xs font-mono tracking-widest text-[#D4A373] uppercase">Initializing...</span>
           </div>
         )}
 
