@@ -26,66 +26,27 @@
   }
 }
 
-/* Abstract Minimalist Diagonal Bands Background Motif */
+/* Abstract Minimalist Diagonal Bands Background Motif (Matching GRATIS 3 Red Chevrons) */
 .gratis-abstract-bg {
   background-image: 
     linear-gradient(
-      125deg,
+      -30deg,
       transparent 0%,
-      transparent 15%,
-      rgba(217, 35, 62, 0.12) 15%,
-      rgba(217, 35, 62, 0.12) 32%,
-      transparent 32%,
-      transparent 40%,
-      rgba(217, 35, 62, 0.10) 40%,
-      rgba(217, 35, 62, 0.10) 58%,
-      transparent 58%,
-      transparent 66%,
-      rgba(217, 35, 62, 0.12) 66%,
-      rgba(217, 35, 62, 0.12) 84%,
-      transparent 84%
+      transparent 65%,
+      rgba(217, 35, 62, 0.08) 65%,
+      rgba(217, 35, 62, 0.08) 69%,
+      transparent 69%,
+      transparent 72%,
+      rgba(217, 35, 62, 0.08) 72%,
+      rgba(217, 35, 62, 0.08) 76%,
+      transparent 76%,
+      transparent 79%,
+      rgba(217, 35, 62, 0.08) 79%,
+      rgba(217, 35, 62, 0.08) 83%,
+      transparent 83%
     );
+  background-attachment: fixed;
   background-size: 100% 100%;
-}
-
-/* Explicit Red Diagonal Chevrons Decorative Background Accent */
-.bg-diagonal-red-chevrons {
-  position: relative;
-}
-.bg-diagonal-red-chevrons::before {
-  content: "";
-  position: absolute;
-  top: -40px;
-  right: 5%;
-  width: 280px;
-  height: 350px;
-  background: repeating-linear-gradient(
-    -35deg,
-    transparent,
-    transparent 20px,
-    rgba(217, 35, 62, 0.18) 20px,
-    rgba(217, 35, 62, 0.18) 55px
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
-.bg-diagonal-red-chevrons-left::after {
-  content: "";
-  position: absolute;
-  bottom: -40px;
-  left: 5%;
-  width: 260px;
-  height: 320px;
-  background: repeating-linear-gradient(
-    -35deg,
-    transparent,
-    transparent 20px,
-    rgba(217, 35, 62, 0.18) 20px,
-    rgba(217, 35, 62, 0.18) 55px
-  );
-  pointer-events: none;
-  z-index: 0;
 }
 
 /* Custom White Header Glassmorphism */
