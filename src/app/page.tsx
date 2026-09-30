@@ -20,12 +20,15 @@ import {
   Globe,
 } from "lucide-react";
 import Lenis from "lenis";
+import HeroScrollCanvas from "@/components/HeroScrollCanvas";
 
 export default function GratisHomepage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("all");
+  const [heroAnimationComplete, setHeroAnimationComplete] = useState(false);
+  const lenisRef = React.useRef<Lenis | null>(null);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -33,6 +36,7 @@ export default function GratisHomepage() {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     });
+    lenisRef.current = lenis;
 
     function raf(time: number) {
       lenis.raf(time);
@@ -81,10 +85,25 @@ export default function GratisHomepage() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!lenisRef.current) return;
+    if (!heroAnimationComplete) {
+      lenisRef.current.stop();
+    } else {
+      lenisRef.current.start();
+    }
+  }, [heroAnimationComplete]);
+
   return (
     <div className="min-h-screen bg-white text-[#0B0B0B] selection:bg-[#D9233E] selection:text-white overflow-x-hidden">
       {/* ==================== 1. HEADER (CLEAN WHITE) ==================== */}
-      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-nav-header py-4">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 glass-nav-header py-4 ${
+          !heroAnimationComplete
+            ? "opacity-0 pointer-events-none -translate-y-full"
+            : "opacity-100 pointer-events-auto translate-y-0"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* GRATIS Brand Logo with Red Chevrons */}
           <a href="#" className="flex items-center gap-3 group">
@@ -222,142 +241,24 @@ export default function GratisHomepage() {
         )}
       </AnimatePresence>
 
-      {/* ==================== 2. HERO SECTION (PURE WHITE #FFFFFF & SOFT GRAY #F5F4F0) ==================== */}
-      <section className="relative w-full min-h-screen bg-gradient-to-b from-white to-[#F5F4F0] text-[#0B0B0B] pt-28 pb-16 flex items-center overflow-hidden border-b border-[#E5E5E5]">
-        {/* Oversized Background Chevron Graphic Motif */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none select-none opacity-15 hidden lg:block">
-          <div className="flex gap-8 transform translate-x-12">
-            <span className="w-32 h-[800px] bg-[#D9233E] skew-x-[-24deg] block" />
-            <span className="w-32 h-[800px] bg-[#D9233E] skew-x-[-24deg] block" />
-            <span className="w-32 h-[800px] bg-[#D9233E] skew-x-[-24deg] block" />
-          </div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-          {/* Left Column: High-Impact Editorial Typography */}
-          <div className="lg:col-span-7 space-y-8">
-            <div className="inline-flex items-center gap-3 px-4 py-1.5 bg-[#F5F4F0] border-l-2 border-[#D9233E] text-xs font-mono tracking-widest text-[#0B0B0B] uppercase font-bold border border-[#E5E5E5]">
-              <span>INDUSTRIAL MANUFACTURING & ARCHITECTURAL MATERIALS</span>
-            </div>
-
-            {/* High Impact Editorial Typography */}
-            <div className="space-y-1">
-              <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[0.9] uppercase text-[#0B0B0B]">
-                WHERE <br />
-                <span className="text-[#D9233E]">CRAFTSMANSHIP</span> <br />
-                MEETS <span className="text-[#D9233E]">MODERN LIVING</span>
-              </h1>
-            </div>
-
-            <p className="text-base md:text-lg text-[#555555] font-normal leading-relaxed max-w-xl">
-              At GRATIS, we manufacture and supply high-density timber, PVC boards, engineered veneers, and structural panels that power large-scale architectural projects.
-            </p>
-
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-5">
-              <a
-                href="#products"
-                className="bg-[#D9233E] hover:bg-[#B51B32] text-white px-8 py-4 text-xs font-mono font-bold uppercase tracking-widest rounded-none shadow-xl transition-all duration-300 flex items-center justify-center gap-3 group"
-              >
-                <span>EXPLORE OUR PRODUCTS</span>
-                <ArrowRight
-                  size={16}
-                  className="group-hover:translate-x-1.5 transition-transform"
-                />
-              </a>
-
-              <a
-                href="#about"
-                className="border border-[#0B0B0B] hover:bg-[#0B0B0B] hover:text-white text-[#0B0B0B] px-6 py-4 text-xs font-mono font-bold uppercase tracking-widest rounded-none transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                <span>SCROLL TO EXPLORE ↓</span>
-              </a>
-            </div>
-          </div>
-
-          {/* Right Column: Architectural Photography + Red Chevrons Overlay */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative z-10 overflow-hidden border border-[#E5E5E5] bg-white group shadow-xl">
-              <img
-                src="/hero-living-space.jpg"
-                alt="GRATIS Architectural Masterpiece"
-                className="w-full h-[500px] md:h-[580px] object-cover group-hover:scale-105 transition-all duration-700"
-              />
-              {/* Overlay Partially Cropped Chevrons */}
-              <div className="absolute top-0 right-0 bottom-0 w-36 bg-gradient-to-l from-black/70 via-black/30 to-transparent pointer-events-none flex items-center justify-end pr-4">
-                <div className="flex gap-2 opacity-90">
-                  <span className="w-3.5 h-48 bg-[#D9233E] skew-x-[-20deg] block" />
-                  <span className="w-3.5 h-48 bg-[#D9233E] skew-x-[-20deg] block" />
-                  <span className="w-3.5 h-48 bg-[#D9233E] skew-x-[-20deg] block" />
-                </div>
-              </div>
-
-              <div className="absolute bottom-0 inset-x-0 bg-white/95 p-4 border-t border-[#E5E5E5]">
-                <p className="text-xs font-mono uppercase text-[#D9233E] font-bold">
-                  ARCHITECTURAL PANELING & TIMBER VENEERS
-                </p>
-              </div>
-            </div>
-            {/* Red Offset Border Accent */}
-            <div className="absolute -bottom-4 -left-4 w-full h-full border border-[#D9233E]/40 z-0 pointer-events-none" />
-          </div>
-        </div>
-      </section>
+      {/* ==================== 2. HERO SECTION WITH IMAGE SEQUENCE SCROLL ANIMATION ==================== */}
+      <HeroScrollCanvas
+        onProgressUpdate={(progress) => {
+          if (progress >= 0.98) {
+            setHeroAnimationComplete(true);
+          }
+        }}
+        onAnimationCompleteChange={(completed) => {
+          setHeroAnimationComplete(completed);
+        }}
+      />
 
       {/* ==================== POST-HERO WRAPPER WITH MINIMAL DIAGONAL BANDS BACKGROUND ==================== */}
       <div className="gratis-abstract-bg">
-        {/* ==================== 3. STATEMENT BAR (SOFT GRAY #F5F4F0) ==================== */}
-        <section className="w-full py-16 bg-[#F5F4F0]/80 text-[#0B0B0B] border-b border-[#E5E5E5]">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            {
-              num: "01",
-              title: "QUALITY CONSTRUCTION",
-              desc: "Built to last with uncompromising raw material standards.",
-              icon: <Shield className="w-5 h-5 text-[#D9233E]" />,
-            },
-            {
-              num: "02",
-              title: "INNOVATIVE DESIGN",
-              desc: "Engineered panel products for futuristic architectural spaces.",
-              icon: <Compass className="w-5 h-5 text-[#D9233E]" />,
-            },
-            {
-              num: "03",
-              title: "TRUSTED EXPERTISE",
-              desc: "Over 75 years of combined timber manufacturing heritage.",
-              icon: <Award className="w-5 h-5 text-[#D9233E]" />,
-            },
-            {
-              num: "04",
-              title: "END-TO-END SOLUTIONS",
-              desc: "From factory manufacturing to Woodmall retail distribution.",
-              icon: <Layers className="w-5 h-5 text-[#D9233E]" />,
-            },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="p-6 bg-white border border-[#E5E5E5] hover:border-[#D9233E] transition-colors space-y-3 relative group shadow-sm"
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-extrabold text-[#D9233E]">
-                  {item.num}
-                </span>
-                {item.icon}
-              </div>
-              <h4 className="font-display text-lg font-bold uppercase tracking-tight text-[#0B0B0B]">
-                {item.title}
-              </h4>
-              <p className="text-xs text-[#555555] font-normal leading-relaxed">
-                {item.desc}
-              </p>
-              <div className="w-full h-0.5 bg-transparent group-hover:bg-[#D9233E] transition-colors" />
-            </div>
-          ))}
-        </div>
-      </section>
+
 
       {/* ==================== 4. LEADERSHIP / CHAIRMAN (PURE WHITE #FFFFFF) ==================== */}
-      <section id="chairman" className="py-24 bg-white text-[#0B0B0B] border-b border-[#E5E5E5]">
+      <section id="chairman" className="py-20 bg-white text-[#0B0B0B] border-b border-[#E5E5E5]">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-[#F5F4F0] p-8 md:p-14 border border-[#E5E5E5] relative shadow-sm">
             {/* Red Vertical Accent Line */}

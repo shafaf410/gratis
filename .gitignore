@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw media and archives
+*.mp4
+*.zip
+*.crdownload
+/frames/
+
