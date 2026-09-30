@@ -18,7 +18,6 @@ export default function HeroScrollCanvas({
 }: HeroScrollCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
-  const [imagesReady, setImagesReady] = useState(false);
 
   // High-precision smooth physics state
   const targetFrameRef = useRef(0);
@@ -27,11 +26,11 @@ export default function HeroScrollCanvas({
   const rafIdRef = useRef<number | null>(null);
   const unlockBufferRef = useRef(0);
 
-  // Render helper function: Draws a specific frame to canvas with crisp DPI & cover fit
+  // Fast GPU blit with alpha: false and no matrix stack overhead
   const renderFrame = (frameIdx: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: false });
     if (!ctx) return;
 
     let img = frameImages[frameIdx];
@@ -56,46 +55,33 @@ export default function HeroScrollCanvas({
 
     if (!img || !img.complete || img.naturalWidth === 0) return;
 
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     const displayWidth = canvas.clientWidth;
     const displayHeight = canvas.clientHeight;
 
     if (displayWidth === 0 || displayHeight === 0) return;
 
-    if (canvas.width !== displayWidth * dpr || canvas.height !== displayHeight * dpr) {
-      canvas.width = displayWidth * dpr;
-      canvas.height = displayHeight * dpr;
+    const targetWidth = Math.round(displayWidth * dpr);
+    const targetHeight = Math.round(displayHeight * dpr);
+
+    if (canvas.width !== targetWidth || canvas.height !== targetHeight) {
+      canvas.width = targetWidth;
+      canvas.height = targetHeight;
     }
 
-    ctx.save();
-    ctx.scale(dpr, dpr);
-
-    const hRatio = displayWidth / img.naturalWidth;
-    const vRatio = displayHeight / img.naturalHeight;
+    const hRatio = targetWidth / img.naturalWidth;
+    const vRatio = targetHeight / img.naturalHeight;
     const ratio = Math.max(hRatio, vRatio);
 
-    const shiftX = (displayWidth - img.naturalWidth * ratio) / 2;
-    const shiftY = (displayHeight - img.naturalHeight * ratio) / 2;
+    const destW = img.naturalWidth * ratio;
+    const destH = img.naturalHeight * ratio;
+    const shiftX = (targetWidth - destW) / 2;
+    const shiftY = (targetHeight - destH) / 2;
 
-    ctx.fillStyle = "#FFFFFF";
-    ctx.fillRect(0, 0, displayWidth, displayHeight);
-
-    ctx.drawImage(
-      img,
-      0,
-      0,
-      img.naturalWidth,
-      img.naturalHeight,
-      shiftX,
-      shiftY,
-      img.naturalWidth * ratio,
-      img.naturalHeight * ratio
-    );
-
-    ctx.restore();
+    ctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight, shiftX, shiftY, destW, destH);
   };
 
-  // 1. Preload frame sequence starting with frame 0
+  // 1. High-speed asynchronous image streaming with background decoding
   useEffect(() => {
     let isMounted = true;
 
@@ -104,21 +90,26 @@ export default function HeroScrollCanvas({
       return `/frames/frame_${paddedIndex}.jpg`;
     };
 
-    // Load Frame 0 first and render immediately
+    // Load Frame 0 first with priority
     const firstImg = new Image();
+    firstImg.decoding = "async";
     firstImg.src = getFramePath(0);
     firstImg.onload = () => {
       if (isMounted) {
-        setImagesReady(true);
-        renderFrame(0);
+        firstImg.decode().then(() => {
+          if (isMounted) renderFrame(0);
+        }).catch(() => {
+          if (isMounted) renderFrame(0);
+        });
       }
     };
     frameImages[0] = firstImg;
 
-    // Load remaining frames in background
+    // Load remaining frames with async decoding
     for (let i = 1; i < TOTAL_FRAMES; i++) {
       if (!frameImages[i]) {
         const img = new Image();
+        img.decoding = "async";
         img.src = getFramePath(i);
         frameImages[i] = img;
       }
@@ -129,15 +120,19 @@ export default function HeroScrollCanvas({
     };
   }, []);
 
-  // 2. High-precision smoothed LERP loop with gentle finish
+  // 2. High-performance 120fps responsive RAF loop
   useEffect(() => {
     const tick = () => {
       const diff = targetFrameRef.current - currentInterpolatedFrameRef.current;
 
       if (Math.abs(diff) > 0.005) {
-        // Smooth cinematic interpolation factor
-        const LERP_FACTOR = 0.09;
+        // Snappy, responsive LERP factor (0.22) eliminates input lag
+        const LERP_FACTOR = 0.22;
         currentInterpolatedFrameRef.current += diff * LERP_FACTOR;
+
+        if (Math.abs(targetFrameRef.current - currentInterpolatedFrameRef.current) < 0.05) {
+          currentInterpolatedFrameRef.current = targetFrameRef.current;
+        }
 
         const roundedIndex = Math.min(
           TOTAL_FRAMES - 1,
@@ -149,7 +144,6 @@ export default function HeroScrollCanvas({
         const progress = currentInterpolatedFrameRef.current / (TOTAL_FRAMES - 1);
         if (onProgressUpdate) onProgressUpdate(progress);
 
-        // Mark complete only when the final logo frame (Frame 150) is fully reached
         if (
           currentInterpolatedFrameRef.current >= TOTAL_FRAMES - 1.1 &&
           !isCompleteRef.current
@@ -169,17 +163,16 @@ export default function HeroScrollCanvas({
     };
   }, [onProgressUpdate, onAnimationCompleteChange]);
 
-  // 3. Wheel & touch control: PREVENTS scrolling down until all 151 frames finish
+  // 3. Direct, zero-lag wheel & touch control
   useEffect(() => {
-    const PIXELS_PER_FRAME = 12; // Smooth, luxurious frame pacing (~1800px total scroll distance)
-    const UNLOCK_THRESHOLD = 120; // Small cushion at the final logo before page scroll unlocks
+    const PIXELS_PER_FRAME = 9; // Direct, immediate scroll response
+    const UNLOCK_THRESHOLD = 80;
 
     const handleWheel = (e: WheelEvent) => {
       const scrollY = window.scrollY || window.pageYOffset || 0;
 
       if (scrollY <= 5) {
         if (!isCompleteRef.current) {
-          // Page cannot scroll down until animation completes!
           if (e.deltaY > 0) {
             e.preventDefault();
             const nextTarget = Math.min(
@@ -188,7 +181,6 @@ export default function HeroScrollCanvas({
             );
             targetFrameRef.current = nextTarget;
 
-            // If target has reached the end, accumulate unlock buffer
             if (nextTarget >= TOTAL_FRAMES - 1) {
               unlockBufferRef.current += e.deltaY;
               if (
@@ -208,7 +200,6 @@ export default function HeroScrollCanvas({
             );
           }
         } else {
-          // Once complete, if user scrolls backwards to the top, re-lock to play reverse
           if (e.deltaY < 0) {
             e.preventDefault();
             isCompleteRef.current = false;
@@ -221,7 +212,6 @@ export default function HeroScrollCanvas({
           }
         }
       } else if (scrollY <= 20 && e.deltaY < 0 && isCompleteRef.current) {
-        // Smoothly catch reverse scroll when returning to top
         isCompleteRef.current = false;
         unlockBufferRef.current = 0;
         if (onAnimationCompleteChange) onAnimationCompleteChange(false);
@@ -278,14 +268,14 @@ export default function HeroScrollCanvas({
     };
   }, [onAnimationCompleteChange]);
 
-  // 4. Re-render canvas when frame index changes or window resizes
+  // 4. Re-render canvas immediately when frame changes
   useEffect(() => {
     renderFrame(currentFrameIndex);
 
     const handleResize = () => renderFrame(currentFrameIndex);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [currentFrameIndex, imagesReady]);
+  }, [currentFrameIndex]);
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-white">
