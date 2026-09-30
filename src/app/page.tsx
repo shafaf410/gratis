@@ -105,19 +105,13 @@ export default function GratisHomepage() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          {/* GRATIS Brand Logo with Red Chevrons */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="flex items-center gap-1.5">
-              <span className="font-display text-3xl font-extrabold tracking-tighter uppercase text-[#0B0B0B]">
-                GRATIS
-              </span>
-              {/* Three Diagonal Red Chevrons */}
-              <div className="flex gap-1 ml-1.5">
-                <span className="w-2 h-6 bg-[#D9233E] skew-x-[-20deg] block" />
-                <span className="w-2 h-6 bg-[#D9233E] skew-x-[-20deg] block" />
-                <span className="w-2 h-6 bg-[#D9233E] skew-x-[-20deg] block" />
-              </div>
-            </div>
+          {/* GRATIS Brand SVG Logo */}
+          <a href="#" className="flex items-center group">
+            <img
+              src="/logo.svg"
+              alt="GRATIS"
+              className="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105 duration-200"
+            />
           </a>
 
           {/* Minimal Navigation */}
@@ -824,15 +818,12 @@ export default function GratisHomepage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 space-y-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4">
-              <div className="flex items-center gap-1.5">
-                <span className="font-display text-3xl font-extrabold tracking-tighter uppercase text-[#0B0B0B]">
-                  GRATIS
-                </span>
-                <div className="flex gap-1 ml-1">
-                  <span className="w-1.5 h-5 bg-[#D9233E] skew-x-[-20deg] block" />
-                  <span className="w-1.5 h-5 bg-[#D9233E] skew-x-[-20deg] block" />
-                  <span className="w-1.5 h-5 bg-[#D9233E] skew-x-[-20deg] block" />
-                </div>
+              <div className="flex items-center">
+                <img
+                  src="/logo.svg"
+                  alt="GRATIS"
+                  className="h-10 w-auto object-contain"
+                />
               </div>
               <p className="text-xs text-[#555555] font-normal leading-relaxed">
                 Gratis Group of Companies — Industrial manufacturing, wholesale, Woodmall retail, interior execution, and international trading.
